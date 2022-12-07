@@ -42,7 +42,7 @@ exitButton.addEventListener('click', sellModalInverse);
 cancelButton.addEventListener('click', sellModalInverse);
 
 
-var acceptButton = document.getElementById("modal-accept");
+var acceptButton = document.getElementById("modal-accept2");
 
 function newPost() {
     var postText = document.getElementById("post-text").value;
@@ -69,79 +69,81 @@ function newPost() {
     }
 
     if (ingredientsText.length == 0) {
-        window.alert("empty city");
+        window.alert("ingredients");
         return false;
     }
 
     if (instructionText.length == 0) {
-        window.alert("empty city");
+        window.alert("instruction");
         return false;
     }
 
-//     var postAnchor = document.createElement('a');
-//     var descriptionText = document.createTextNode(postText);
-//     postAnchor.classList.add("post-title")
-//     postAnchor.href = "#";
-//     postAnchor.appendChild(descriptionText);
+    var postAnchor = document.createElement('a');
+    var descriptionText = document.createTextNode(postText);
+    postAnchor.classList.add("post-title")
+    postAnchor.href = "#";
+    postAnchor.appendChild(descriptionText);
 
-//     var postPrice = document.createElement('span');
-//     var priceText = document.createTextNode("$" + postPriceText);
-//     postPrice.classList.add("post-price");
-//     postPrice.appendChild(priceText);
+    // var postPrice = document.createElement('span');
+    // var priceText = document.createTextNode("$" + postPriceText);
+    // postPrice.classList.add("post-price");
+    // postPrice.appendChild(priceText);
 
-//     var postCity = document.createElement('span');
-//     var cityText = document.createTextNode("(" + postCityText + ")");
-//     postCity.classList.add("post-city");
-//     postCity.appendChild(cityText);
+    var nameDiv = document.createElement('div');
+    console.log(nameText);
+    var nameDivText = document.createTextNode(nameText);
+    // postCity.classList.add("user-name");
+    nameDiv.appendChild(nameDivText);
 
-//     var postInfoDiv = document.createElement('div');
-//     postInfoDiv.classList.add("post-info-container");
-//     postInfoDiv.appendChild(postAnchor);
-//     postInfoDiv.appendChild(postPrice);
-//     postInfoDiv.appendChild(postCity);
+    var recipeInfoContainer = document.createElement('div');
+    recipeInfoContainer.classList.add("post-info-container");
+    recipeInfoContainer.appendChild(postAnchor);
+    recipeInfoContainer.appendChild(nameDiv);
+    // recipeInfoContainer.appendChild(postCity);
 
-//     var postImg = document.createElement('img');
-//     var imgSRC = document.createAttribute('src');
-//     var imgDescription = document.createAttribute('alt');
-//     imgSRC.value = postPhotoText;
-//     imgDescription.value = postText;
-//     postImg.setAttributeNode(imgSRC);
-//     postImg.setAttributeNode(imgDescription);
+    var postImg = document.createElement('img');
+    var imgSRC = document.createAttribute('src');
+    var imgDescription = document.createAttribute('alt');
+    imgSRC.value = "";
+    imgDescription.value = "";
+    postImg.setAttributeNode(imgSRC);
+    postImg.setAttributeNode(imgDescription);
 
-//     var postImgDiv = document.createElement('div');
-//     postImgDiv.classList.add("post-image-container");
-//     postImgDiv.appendChild(postImg);
+    var postImgDiv = document.createElement('div');
+    postImgDiv.classList.add("post-image-container");
+    postImgDiv.appendChild(postImg);
 
-//     var postListing = document.createElement('div');
-//     postListing.classList.add("post-contents");
-//     postListing.appendChild(postImgDiv);
-//     postListing.appendChild(postInfoDiv);
+    var postListing = document.createElement('div');
+    postListing.classList.add("post-contents");
+    postListing.appendChild(postImgDiv);
+    postListing.appendChild(recipeInfoContainer)
+    //postListing.appendChild(postInfoDiv);
 
-//     var newPost = document.createElement('div');
-//     var priceAttribute = document.createAttribute("data-price");
-//     var cityAtrribute = document.createAttribute("data-city");
-//     var conditionAttribute = document.createAttribute("data-condition")
-//     newPost.classList.add("post");
-//     priceAttribute.value = postPrice;
-//     cityAtrribute.value = postCity;
-//     conditionAttribute.value = condition;
-//     newPost.setAttributeNode(priceAttribute);
-//     newPost.setAttributeNode(cityAtrribute);
-//     newPost.setAttributeNode(conditionAttribute);
+    var newPost = document.createElement('div');
+    var recipeImageAttribute = document.createAttribute("recipes-image-container");
+    var recipeInfoAtrribute = document.createAttribute("recipe-info-container");
+    //var conditionAttribute = document.createAttribute("data-condition")
+    newPost.classList.add("post");
+    // priceAttribute.value = recipeImageAttribute;
+    // cityAtrribute.value = recipeInfoAtrribute;
+    // conditionAttribute.value = condition;
+    // newPost.setAttributeNode(priceAttribute);
+    // newPost.setAttributeNode(cityAtrribute);
+    // newPost.setAttributeNode(conditionAttribute);
 
-//     var postList = [];
-//     var bennysPosts = document.getElementsByClassName('post');
-//     for (var i = 0; i < bennysPosts.length; i++) {
-//         postList.push(bennysPosts[i])
-//     }
-//         newPost.appendChild(postListing);
+    var postList = [];
+    var bennysPosts = document.getElementsByClassName('post');
+    for (var i = 0; i < bennysPosts.length; i++) {
+        postList.push(bennysPosts[i])
+    }
+        newPost.appendChild(postListing);
 
-//     var posts = document.getElementById('posts');
-//     posts.appendChild(newPost);
-//     postList.push(newPost);
+    var posts = document.getElementById('posts');
+    posts.appendChild(newPost);
+    postList.push(newPost);
 
-//     toggleModal();
-//     clear_input();
-// }
+    toggleModal();
+    clear_input();
+}
 
-// acceptButton.addEventListener('click', newPost);
+acceptButton.addEventListener('click', newPost);

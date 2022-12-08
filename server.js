@@ -1,3 +1,4 @@
+var fs = require('fs')
 var express = require('express');
 var exphbs = require('express-handlebars')
 
@@ -10,37 +11,57 @@ app.engine('handlebars', exphbs.engine({
     defaultLayout: "main"
 }))
 app.set('view engine', 'handlebars')
-
+app.use(express.json())
 app.use(express.static('public'));
 
 app.get('/recipes', function (req, res, next) {
-    res.status(200).sendFile(__dirname + '/recipes/recipe.html');
-});
-
-
-app.get('/recipes/recipe', function (req, res, next) {
-    var person = req.params.person.toLowerCase();
-    var personData = peopleData[person]
-    console.log("== data for", person, ":", personData)
-
-    if (personData) {
-        res.status(200).render('photoPage', {
-            name: personData.name,
-            photos: personData.photos,
-            // truthyOrFalsy: null
-        })
+    res.status(200).render('recipePage', {
+        recipe: recipeData
+    })
+})
+app.get('/recipes/:recipe', function (req, res, next) {
+    var recipe = req.params.recipe.toLowerCase()
+    if (recipeData[recipe]) {
+        res.status(200).render('recipePage', recipeData[recipe])
     } else {
-        next();
+        next()
     }
-});
+})
+app.post('/recipes/:recipe/addPhoto', function (req, res, next) {
+    var recipe = req.params.recipe.toLowerCase()
+    if (recipeData[recipe]) {
+        console.log("  -- req.body:", req.body)
+        if (req.body && req.body.url && req.body.caption) {
+            var photo = {
+                url: req.body.url,
+                caption: req.body.caption
+            }
+            recipeData[recipe].photos.push(photo)
 
-app.get("*", function (req, res, next) {
-    res.status(404).render('404')
-});
-
-app.listen(port, function (err) {
-    if (err) {
-        throw err;
+            fs.writeFile(
+                './recipeData.json',
+                JSON.stringify(recipeData, null, 2),
+                function (err) {
+                    if (err) {
+                        res.status(500).send("Upload Error!")
+                    } else {
+                        res.status(200).send("Success!")
+                    }
+                }
+            )
+        } else {
+            res.status(400).send("Need a URL and Caption!")
+        }
+    } else {
+        next()
     }
-    console.log("== Server listening on port", port);
-});
+})
+
+app.get('*', function (req, res, next) {
+    res.status(404).render('404', {
+        page: req.url
+    })
+})
+
+app.listen(port, function () {
+})

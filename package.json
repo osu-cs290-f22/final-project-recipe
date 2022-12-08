@@ -1,6 +1,20 @@
 {
   "name": "final-project-recipe",
   "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "build": "handlebars views/partials/recipeCard.handlebars -f public/recipeCardTemplate.js",
+    "prestart": "npm run build",
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "handlebars": "^4.7.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }

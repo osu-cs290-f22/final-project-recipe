@@ -79,10 +79,10 @@ function newPost() {
     }
 
     var postAnchor = document.createElement('a');
-    var descriptionText = document.createTextNode(postText);
-    postAnchor.classList.add("post-title")
+    var foodNameText = document.createTextNode(postText);
+    postAnchor.classList.add("recipes-name");
     postAnchor.href = "#";
-    postAnchor.appendChild(descriptionText);
+    postAnchor.appendChild(foodNameText);
 
     // var postPrice = document.createElement('span');
     // var priceText = document.createTextNode("$" + postPriceText);
@@ -92,37 +92,89 @@ function newPost() {
     var nameDiv = document.createElement('div');
     console.log(nameText);
     var nameDivText = document.createTextNode(nameText);
+    nameDiv.classList.add("user-name");
     // postCity.classList.add("user-name");
     nameDiv.appendChild(nameDivText);
 
+    var descriptionContainer = document.createElement('div');
+    descriptionContainer.classList.add("description");
+    descriptionContainer.textContent = "Description:"
+
+    var descriptionTextContainer = document.createElement('div');
+    descriptionTextContainer.classList.add("description-text");
+    descriptionTextContainer.textContent = descriptionText;
+
     var recipeInfoContainer = document.createElement('div');
-    recipeInfoContainer.classList.add("post-info-container");
+    recipeInfoContainer.classList.add("recipe-info-container");
     recipeInfoContainer.appendChild(postAnchor);
     recipeInfoContainer.appendChild(nameDiv);
+    recipeInfoContainer.appendChild(descriptionContainer);
+    recipeInfoContainer.appendChild(descriptionTextContainer);
+
+    var readMoreButton = document.createElement('button');
+    readMoreButton.id.add("read-more-button");
+    readMoreButton.textContent = "READ MORE";
+
+    var modalBackdropDiv = document.createElement('div');
+    modalBackdropDiv.id.add("modal-backdrop");
+    modalBackdropDiv.classList.add("hidden");
+
+    var readMoreModalDiv = document.createElement('div');
+    readMoreModalDiv.id.add("read-more-modal");
+    readMoreModalDiv.classList.add("hidden");
+
+    var modalHeaderDiv = document.createElement('div');
+    var modalHeaderH3 = document.createElement('h3');
+    modalHeaderH3.textContent = "More Information About the Recipe";
+    var modalExitButton = document.createElement('button');
+    modalExitButton.id.add("modal-close");
+    modalExitButton.classList.add("modal-hide-button");
+    modalExitButton.textContent = "×";
+    modalHeaderDiv.appendChild(modalHeaderH3);
+    modalHeaderDiv.appendChild(modalExitButton);
+
+    function readMoreModal()
+
+    .addEventListener('click', addRecipes);
+
+    var modalBodyDiv
+    var modalFooterDiv
+
+
+    
+
+
+
+
     // recipeInfoContainer.appendChild(postCity);
 
     var postImg = document.createElement('img');
     var imgSRC = document.createAttribute('src');
     var imgDescription = document.createAttribute('alt');
-    imgSRC.value = "";
-    imgDescription.value = "";
+    imgSRC.value = "###";
+    imgDescription.value = "###";
     postImg.setAttributeNode(imgSRC);
     postImg.setAttributeNode(imgDescription);
 
     var postImgDiv = document.createElement('div');
-    postImgDiv.classList.add("post-image-container");
+    postImgDiv.classList.add("recipes-image-container");
     postImgDiv.appendChild(postImg);
 
     var postListing = document.createElement('div');
     postListing.classList.add("post-contents");
     postListing.appendChild(postImgDiv);
     postListing.appendChild(recipeInfoContainer)
+    postListing.appendChild(readMoreButton);
+    postListing.appendChild(modalBackdropDiv);
+    postListing.appendChild(readMoreModalDiv);
+    
     //postListing.appendChild(postInfoDiv);
 
     var newPost = document.createElement('div');
     var recipeImageAttribute = document.createAttribute("recipes-image-container");
     var recipeInfoAtrribute = document.createAttribute("recipe-info-container");
     //var conditionAttribute = document.createAttribute("data-condition")
+    //postImgDiv.classList.add("recipes-image-container");
     newPost.classList.add("post");
     // priceAttribute.value = recipeImageAttribute;
     // cityAtrribute.value = recipeInfoAtrribute;

@@ -1,5 +1,5 @@
 {
-  "luke": {
+  "pesto": {
     "name": "Pesto Pasta",
     "photos": [
       {
@@ -8,7 +8,7 @@
       }
     ]
   },
-  "leia": {
+  "pizza": {
     "name": "Homemade Pizza",
     "photos": [
       {

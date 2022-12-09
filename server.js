@@ -1,9 +1,7 @@
 var fs = require('fs')
 var express = require('express');
 var exphbs = require('express-handlebars')
-
 var recipeData = require("./recipeData.json")
-
 var port = process.env.PORT || 8000;
 var app = express();
 
@@ -14,6 +12,12 @@ app.set('view engine', 'handlebars')
 app.use(express.json())
 app.use(express.static('public'));
 
+app.get('/', function(req, res, next){
+    res.status(200).render('homePage', {
+        homePage: true,
+        recipeData
+    })
+})
 app.get('/recipes', function (req, res, next) {
     res.status(200).render('recipePage', {
         recipe: recipeData

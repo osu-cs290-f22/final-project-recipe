@@ -30,7 +30,6 @@ app.get('/recipes/:recipe', function (req, res, next) {
 app.post('/recipes/:recipe/addPhoto', function (req, res, next) {
     var recipe = req.params.recipe.toLowerCase()
     if (recipeData[recipe]) {
-        console.log("  -- req.body:", req.body)
         if (req.body && req.body.url && req.body.caption) {
             var photo = {
                 url: req.body.url,
@@ -64,4 +63,5 @@ app.get('*', function (req, res, next) {
 })
 
 app.listen(port, function () {
+    console.log("...listening on port", port)
 })

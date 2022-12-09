@@ -20,7 +20,7 @@ app.get('/', function(req, res, next){
 })
 app.get('/recipes', function (req, res, next) {
     res.status(200).render('recipePage', {
-        recipe: recipeData
+        recipeData
     })
 })
 app.get('/recipes/:recipe', function (req, res, next) {

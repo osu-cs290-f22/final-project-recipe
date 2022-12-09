@@ -39,9 +39,8 @@ function modalPost(){
 var readMoreButtons = document.querySelectorAll("[id='read-more-button']");
 var modalBackDrops = document.querySelectorAll("[id='modal-backdrop']");
 var readMoreModals = document.querySelectorAll("[id='read-more-modal']");
-var readMoreModals = document.querySelectorAll("[id='read-more-modal']");
-var exitButtonModals = document.querySelectorAll("[id='read-more-modal']");
-var closeButtonModals = document.querySelectorAll("[id='read-more-modal']");
+var exitButtonModals = document.querySelectorAll("[id='modal-close']");
+var closeButtonModals = document.querySelectorAll("[id='modal-cancel']");
 
 function modalPost1(){
     modalBackDrops[0].classList.toggle('hidden');

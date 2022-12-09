@@ -1,10 +1,3 @@
-/*
- * Write your client-side JS code in this file.  Don't forget to include your
- * name and @oregonstate.edu email address below.
- *
- * Name: Sean Curtis
- * Email: curtisse@oregonstate.edu
- */
 
 
 var addRecipesVar = document.getElementById("add-recipes-button");
@@ -112,33 +105,87 @@ function newPost() {
     recipeInfoContainer.appendChild(descriptionTextContainer);
 
     var readMoreButton = document.createElement('button');
-    readMoreButton.id.add("read-more-button");
+    readMoreButton.id = "read-more-button";
     readMoreButton.textContent = "READ MORE";
 
     var modalBackdropDiv = document.createElement('div');
-    modalBackdropDiv.id.add("modal-backdrop");
+    modalBackdropDiv.id = "modal-backdrop";
     modalBackdropDiv.classList.add("hidden");
 
     var readMoreModalDiv = document.createElement('div');
-    readMoreModalDiv.id.add("read-more-modal");
+    readMoreModalDiv.id = "read-more-modal";
     readMoreModalDiv.classList.add("hidden");
 
+    var modalDialogDiv = document.createElement('div');
+    modalDialogDiv.classList.add("modal-dialog");
+
+
     var modalHeaderDiv = document.createElement('div');
+    modalHeaderDiv.classList.add("modal-header");
     var modalHeaderH3 = document.createElement('h3');
     modalHeaderH3.textContent = "More Information About the Recipe";
     var modalExitButton = document.createElement('button');
-    modalExitButton.id.add("modal-close");
+    modalExitButton.id = "modal-close";
     modalExitButton.classList.add("modal-hide-button");
     modalExitButton.textContent = "×";
+
     modalHeaderDiv.appendChild(modalHeaderH3);
     modalHeaderDiv.appendChild(modalExitButton);
 
-    function readMoreModal()
+    var modalBodyDiv = document.createElement('div');
+    modalBodyDiv.classList.add("modal-body");
 
-    .addEventListener('click', addRecipes);
+    var recipeInputDiv = document.createElement('div');
+    recipeInputDiv.classList.add("recipes-input");
 
-    var modalBodyDiv
-    var modalFooterDiv
+    var ingredientsLabel = document.createElement('label');
+    ingredientsLabel.textContent = "Ingredients";
+    var ingredientsP = document.createElement('p');
+    ingredientsP.textContent = ingredientsText;
+    var directionsLabel = document.createElement('label');
+    directionsLabel.textContent = "Directions";
+    var directionsP = document.createElement('p');
+    directionsP.textContent = instructionText;
+
+    recipeInputDiv.appendChild(ingredientsLabel);
+    recipeInputDiv.appendChild(ingredientsP);
+    recipeInputDiv.appendChild(directionsLabel);
+    recipeInputDiv.appendChild(directionsP);
+
+    modalBodyDiv.appendChild(recipeInputDiv);
+
+
+    var modalFooterDiv = document.createElement('div');
+    modalFooterDiv.classList.add("modal-footer");
+    var modalFooterButton = document.createElement('button');
+    modalFooterButton.id = "modal-cancel";
+    modalFooterButton.classList.add("modal-hide-button");
+    modalFooterButton.classList.add("action-button");
+    modalFooterButton.textContent = "Close";
+
+    modalFooterDiv.appendChild(modalFooterButton);
+
+
+    modalDialogDiv.appendChild(modalHeaderDiv);
+    modalDialogDiv.appendChild(modalBodyDiv);
+    modalDialogDiv.appendChild(modalFooterDiv);
+
+    readMoreModalDiv.appendChild(modalDialogDiv);    
+
+    function readMoreModal(){
+        console.log(modalExitButton.textContent)
+        modalBackdropDiv.classList.toggle('hidden');
+        readMoreModalDiv.classList.toggle('hidden');
+    }
+
+
+    readMoreButton.addEventListener('click', readMoreModal);
+    modalFooterDiv.addEventListener('click', readMoreModal);
+    modalExitButton.addEventListener('click', readMoreModal);
+
+
+    // var modalBodyDiv
+    // var modalFooterDiv
 
 
     

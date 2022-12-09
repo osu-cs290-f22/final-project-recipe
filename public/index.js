@@ -1,5 +1,3 @@
-
-
 var addRecipesVar = document.getElementById("add-recipes-button");
 
 function toggleModal() {
@@ -58,9 +56,9 @@ cancelButton.addEventListener('click', sellModalInverse);
 readMoreButtons[0].addEventListener('click', modalPost1);
 closeButtonModals[0].addEventListener('click', modalPost1);
 exitButtonModals[0].addEventListener('click', modalPost1);
-readMoreButtons[1].addEventListener('click', modalPost2);
-closeButtonModals[1].addEventListener('click', modalPost2);
-exitButtonModals[1].addEventListener('click', modalPost2);
+//readMoreButtons[1].addEventListener('click', modalPost2);
+//closeButtonModals[1].addEventListener('click', modalPost2);
+//exitButtonModals[1].addEventListener('click', modalPost2);
 
 //readMoreButtons[0].addEventListener('click', sellModalInverse);
 
@@ -70,6 +68,37 @@ exitButtonModals[1].addEventListener('click', modalPost2);
 var acceptButton = document.getElementById("modal-accept2");
 
 function newPost() {
+
+    var nameText = document.getElementById("your-name").value;
+    var descriptionText = document.getElementById("description").value;
+    var ingredientsText = document.getElementById("ingredients").value;
+    var instructionText = document.getElementById("instruction").value
+
+    var post = {
+        "name": nameText,
+        "url": ingredientsText,
+        "description": descriptionText,
+        "author": instructionText
+    }
+
+    var post2 = Handlebars.templates.recipeCard(post)
+
+    var section = document.getElementById("posts")
+
+    section.insertAdjacentHTML("beforeend", post2)
+
+
+
+
+    var addrecipes = document.getElementById('add-recipes-modal');
+    var modalBackdrop = document.getElementById('modal-backdrop2');
+
+    addrecipes.classList.add('hidden2');
+    modalBackdrop.classList.add('hidden2');
+
+    clearSellSomethingModalInputs();
+
+    /*
     var postText = document.getElementById("post-text").value;
     var nameText = document.getElementById("your-name").value;
     var descriptionText = document.getElementById("description").value;
@@ -275,6 +304,32 @@ function newPost() {
 
     toggleModal();
     clear_input();
+    */
+}
+
+function clearSellSomethingModalInputs() {
+
+  var postTextInputElements = [
+    document.getElementById('your-name'),
+    document.getElementById('description'),
+    document.getElementById('ingredients'),
+    document.getElementById('instruction'),
+    document.getElementById("post-text")
+  ];
+
+  /*
+   * Clear any text entered in the text inputs.
+   */
+  postTextInputElements.forEach(function (inputElem) {
+    inputElem.value = '';
+  });
+
+  /*
+   * Grab the originally checked radio button and make sure it's checked.
+   */
+  var checkedPostConditionButton = document.querySelector('#post-condition-fieldset input[checked]');
+  checkedPostConditionButton.checked = true;
+
 }
 
 acceptButton.addEventListener('click', newPost);

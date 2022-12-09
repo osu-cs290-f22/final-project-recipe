@@ -1,0 +1,117 @@
+<main class="content">
+    <section id="posts">
+
+        {{#each recipeData}}
+        {{>recipeCard}}
+        {{/each}}
+
+        <div id="modal-backdrop" class="hidden"></div>
+        <div id="read-more-modal" class="hidden">
+            <div class="modal-dialog">
+
+                <div class="modal-header">
+                    <h3>More Information About the Recipes</h3>
+                    <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="recipes-input">
+                        <label>Ingredients</label>
+                        <ul>
+                            <li>Fresh Basil</li>
+                            <li>Walnut</li>
+                            <li>Cheese</li>
+                            <li>Garlic</li>
+                            <li>Olive Oil</li>
+                            <li>Salt and Pepper</li>
+                        </ul>
+
+                        <label>Direction</label>
+                        <ul>
+                            <li>
+                                <div>
+                                    Cook Pasta: Boil water in a saucepan with salt.
+                                    Add the desired shape of pasta and cook till al-dente.
+                                    Reserve 1 cup of boiled pasta water. Drain the remaining
+                                    water. Transfer the cooked pasta to a mixing bowl.
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    Make Pesto Sauce: Start with blending the ingredients
+                                    in a food processor to make the pesto sauce.
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    Combine: Add pesto sauce to the cooked pasta. Mix nicely,
+                                    add ¼ cup of reserved pasta water to make it saucy. Add
+                                    the remaining ¼ cup of water, cream, cherry tomato, mix,
+                                    and the basil pesto pasta is ready to serve.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="modal-cancel" class="modal-hide-button action-button">Close</button>
+                </div>
+            </div>
+        </div>
+        </div>
+        </div>
+
+    </section>
+
+
+    <button type="button" id="add-recipes-button">+</button>
+
+    <div id="modal-backdrop2" class="hidden2"></div>
+    <div id="add-recipes-modal" class="hidden2">
+        <div class="modal-dialog2">
+
+            <div class="modal-header2">
+                <h3>Adding a New Recipes</h3>
+                <button type="button" id="modal-close2" class="modal-hide-button">&times;</button>
+            </div>
+
+            <div class="modal-body2">
+
+                <div class="post-input-element">
+                    <label for="recipe-name">Name of Recipes</label>
+                    <input type="text" id="post-text"></input>
+                </div>
+
+                <div class="post-input-element">
+                    <label for="your-name">Your Name</label>
+                    <input type="text" id="your-name"></input>
+                </div>
+
+                <div class="post-input-element">
+                    <label for="description">Description</label>
+                    <input type="text" id="description"></input>
+                </div>
+
+                <div class="post-input-element">
+                    <label for="ingredients">Ingredients</label>
+                    <input type="text" id="ingredients"></input>
+                </div>
+
+                <div class="post-input-element">
+                    <label for="instruction">Instruction</label>
+                    <input type="text" id="instruction"></input>
+                </div>
+
+            </div>
+
+            <div class="modal-footer2">
+                <button type="button" id="modal-cancel2" class="modal-hide-button action-button">Close</button>
+                <button type="button" id="modal-accept2" class="action-button">Add Recipes</button>
+            </div>
+        </div>
+    </div>
+
+</main>

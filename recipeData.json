@@ -2,13 +2,13 @@
     {
         "name": "Pesto Pasta",
         "url": "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Basil-Pesto-5.jpg",
-        "description": "bullshit",
+        "description": "test1",
         "author": "Tom"
     },
     {
         "name": "Homemade Pizza",
         "url": "https://thefoodcharlatan.com/wp-content/uploads/2021/08/Homemade-Pizza-Recipe-1-Hour-or-Overnight-20-650x975.jpg",
-        "description": "moreshit",
+        "description": "test2",
         "author":  "Kate"
     }
 ]

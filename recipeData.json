@@ -2,13 +2,37 @@
     {
         "name": "Pesto Pasta",
         "url": "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Basil-Pesto-5.jpg",
-        "description": "test1",
+        "description": "This is a delicious, vegetarian pasta recipe packed with the flavor of fresh basil and walnut pesto. Homemade Pesto Sauce is the best use for all the fresh summer basil growing in your herb garden. Follow my tried and true tips to make a perfect pesto pasta that won’t turn black or bitter.",
         "author": "Tom"
     },
     {
         "name": "Homemade Pizza",
         "url": "https://thefoodcharlatan.com/wp-content/uploads/2021/08/Homemade-Pizza-Recipe-1-Hour-or-Overnight-20-650x975.jpg",
-        "description": "test2",
+        "description": "I love this Easy Homemade Pizza Recipe! I have been perfecting this recipe for years. It is quick to put together and so versatile. I’ll give you lots of tips, tricks, and ideas to get the best homemade pizza to ever come out of your wimpy, not-wood-fired oven!",
         "author":  "Kate"
+    },
+    {
+        "name": "Chicken Salad",
+        "url": "https://healthyfitnessmeals.com/wp-content/uploads/2021/04/Southwest-chicken-salad-7.jpg",
+        "description": "Sliced chicken with lettuce and romaine dressing",
+        "author": "Ben"
+    },
+    {
+        "name": "Curry Bowl",
+        "url": "",
+        "description": "Chicken, Yellow Curry, and a Veggie Mix involving cabbage/carrots, green onions, and more!",
+        "author": "Lewis"
+    },
+    {
+        "name": "Chicken Stirfry",
+        "url": "",
+        "description": "Chicken mixed with Teriyaki Sauce and a mixture of vegetables",
+        "author": "Mark"
+    },
+    {
+        "name": "Lasagna",
+        "url": "",
+        "description": "A spicy meat lasagna sure to satisfy your taste buds!",
+        "author": "Lily"
     }
 ]

@@ -31,8 +31,41 @@ function sellModalInverse() {
     clear_input();
 }
 
+function modalPost(){
+    document.getElementById("modal-backdrop2").classList.toggle('hidden2');
+    document.getElementById("add-recipes-modal").classList.toggle('hidden2');
+}
+
+var readMoreButtons = document.querySelectorAll("[id='read-more-button']");
+var modalBackDrops = document.querySelectorAll("[id='modal-backdrop']");
+var readMoreModals = document.querySelectorAll("[id='read-more-modal']");
+var readMoreModals = document.querySelectorAll("[id='read-more-modal']");
+var exitButtonModals = document.querySelectorAll("[id='read-more-modal']");
+var closeButtonModals = document.querySelectorAll("[id='read-more-modal']");
+
+function modalPost1(){
+    modalBackDrops[0].classList.toggle('hidden');
+    readMoreModals[0].classList.toggle('hidden');
+}
+
+function modalPost2(){
+    modalBackDrops[1].classList.toggle('hidden');
+    readMoreModals[1].classList.toggle('hidden');
+}
+
+
 exitButton.addEventListener('click', sellModalInverse);
 cancelButton.addEventListener('click', sellModalInverse);
+readMoreButtons[0].addEventListener('click', modalPost1);
+closeButtonModals[0].addEventListener('click', modalPost1);
+exitButtonModals[0].addEventListener('click', modalPost1);
+readMoreButtons[1].addEventListener('click', modalPost2);
+closeButtonModals[1].addEventListener('click', modalPost2);
+exitButtonModals[1].addEventListener('click', modalPost2);
+
+//readMoreButtons[0].addEventListener('click', sellModalInverse);
+
+
 
 
 var acceptButton = document.getElementById("modal-accept2");
